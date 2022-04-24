@@ -1,34 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Pokedex clone
 
-## Getting Started
+This project was developed in a weekend:
 
-First, run the development server:
+### How to run it
+I used `yarn create next-app` to create it.
+In terms to run it locally, running `yarn && yarn dev` should be enough to give it a try
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Decisions
+I decided not to use typescript to speed up the development process taking the risk of having trivial but tricky errors.
+I left testing for later for same reason.
+Regarding the add pokemon mocked functionality, I just add a form with two inputs for the complexity and the amount of props that a pokemon could have, I hope that not to be very serious issue.
+It has a main component with the list of pokemons, a pagination and a button to add a pokemon, 
+The add pokemon button routes you to the mocked form to add a pokemon.
+Pressing the details button below each pokemon picture brings you to the deatail page.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I'm use to structure the components as a unit with:
+A types.ts file: which contain the types used exclusively for that component
+An index.tsx file: which has all the major logic of the component as well as some hooks to connect it to some API, or other stuff.
+A Presentational.tsx file that is pretended to has just the component itself and receive the props properly sanitized by index.tsx
+A constants.ts file which has the parameterizable hardcoded props that may appear around the component logic or rendering.
+A [COMPONENT_NAME].test.ts file that has the tests written regarding the functionality of this particular component
+A styles.ts/styles.module.scss file which contain the styles customization for the component
+Could has a .stories file to bring an isolated environment to have a playground for developing/UserTest the component
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
